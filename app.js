@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const usersRoutes = require("./routes/usersRoutes");
+const ticketRoutes  = require("./routes/ticketRoutes")
 
 const app = express();
 app.use(express.json());
@@ -16,6 +17,8 @@ mongoose.connect(dburl)
 
 
 app.use("/users", usersRoutes);
+app.use("/ticket",ticketRoutes);
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
